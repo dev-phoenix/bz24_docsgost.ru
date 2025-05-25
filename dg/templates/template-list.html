@@ -1,0 +1,142 @@
+{# template-list.html #}
+{% extends 'base.html' %}
+{% load tplext %}
+
+{% block title %}Шаблоны{% endblock %}
+
+{% block content %}
+<div class="container">
+    {#{ tplsList }#}
+    {#{ filesCou }#}
+    <div class="row">
+        <div class="col col-1">
+            ID:
+        </div>
+        <div class="col col-5">
+            Шаблон:
+        </div>
+        <div class="col col-2">
+            Тип:
+        </div>
+        <div class="col col-3">
+            Вуз:
+        </div>
+        <div class="col col-1">
+            Файлов:
+        </div>
+    </div>
+    {% for tpl in tplsList %}
+    <!-- <div class="row {% cycle 'odd' 'even' %}"> -->
+    <a class="row {% cycle 'odd' 'even' %}" href="{% url 'tplget' tplid=tpl.tpl.id  %}">
+        <div class="col col-1">
+            <!-- <a class="" href="{% url 'tplget' tplid=tpl.tpl.id  %}">{{ tpl.tpl.id }}</a> -->
+            {{ tpl.tpl.id }}
+        </div>
+        <div class="col col-5">
+            <!-- <a class="" href="{% url 'tplget' tplid=tpl.tpl.id  %}">{{ tpl.tpl.templateName }}</a> -->
+            {{ tpl.tpl.templateName }}
+        </div>
+        <div class="col col-2">
+            {% if tpl.tpl.workType %}
+            {#{ tpl.tpl.id|workType }#}
+            {{ tpl.tpl.workType }}
+            {% endif %}
+        </div>
+        <div class="col col-3">
+            {{ tpl.tpl.id|vuz }}
+        </div>
+        <div class="col col-1">
+            {#{ filesCou|val:tpl.id }#}
+            {% if tpl.files > 0 %}{{ tpl.files }}{% endif %}
+        </div>
+    </a>
+    {% endfor %}
+    {% if pageCou > 1 %}
+    <div class="col col-12 my-3 d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+            {% if not limit == 100 %}
+                <li class="page-item {% if pagePrevDis %} disabled{% endif %}">
+                    <a class="page-link" href="{% url 'templateList' page=pagePrev limit=limit  %}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                {% for num, page in pages %}
+                <li class="page-item{% if num == currentPage %} active{% endif %}" 
+                {% if num == currentPage %}aria-current="page"{% endif %}><a class="page-link" href="{% url 'templateList' page=num limit=limit  %}">{{ page }} </a></li>
+                {% endfor %}
+
+                <li class="page-item {% if pageNextDis %} disabled{% endif %}">
+                    <a class="page-link" href="{% url 'templateList' page=pageNext limit=limit  %}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item {% if pagePrevDis %} disabled{% endif %}">
+                    <a class="page-link" href="{% url 'templateList' page=pagePrev  %}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                {% for num, page in pages %}
+                <li class="page-item{% if num == currentPage %} active{% endif %}" 
+                {% if num == currentPage %}aria-current="page"{% endif %}><a class="page-link" href="{% url 'templateList' page=num  %}">{{ page }} </a></li>
+                {% endfor %}
+
+                <li class="page-item {% if pageNextDis %} disabled{% endif %}">
+                    <a class="page-link" href="{% url 'templateList' page=pageNext  %}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+    {% comment %}
+    <div class="col col-12 my-3 d-flex justify-content-center">
+        <div class="mx-3">
+            currentPage {{ currentPage }}
+        </div>
+        <div class="mx-3">
+            limit {{ limit }}
+        </div>
+        <div class="mx-3">
+            slice {{ sli }}
+        </div>
+        <div class="mx-3">
+            pageCou {{ pageCou }}
+        </div>
+        <div class="mx-3">
+            pageCou {{ pageCou }}
+        </div>
+        <div class="mx-3">
+            pagePrev {{ pagePrev }}
+        </div>
+        <div class="mx-3">
+            pageNext {{ pageNext }}
+        </div>
+    </div>
+    {% endcomment %}
+    <div class="row justify-content-end mb-4">
+        <div class="col-auto">
+            <!-- <button type="submit" class="btn btn-primary bd-indigo-600 -mb-3">Сохранить</button> -->
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col col-6">
+        <!-- <img src="/media/main/img/exemple/interface.png" class="img-fluid" alt="..."> -->
+
+        </div>
+        <div class="col col-6">
+        <!-- <img src="/media/main/img/exemple/db.png" class="img-fluid" alt="..."> -->
+
+        </div>
+    </div>
+    <div class="y-3 text-center">
+
+    </div>
+</div>
+{% endblock %}

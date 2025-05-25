@@ -1,0 +1,34 @@
+{# form-item-style-file.html #}
+{% load tplext %}
+
+<div class="card mb-3">
+    <h2 class="card-header">Файлы ( {{ form.filesCou }} )</h2>
+    <div class="card-body">
+        <div class="mb-3">
+        {% for file in form.files %}
+        <div class="row {% cycle 'odd' 'even' %}">
+            <div class="col col-10">
+                <a class="" target="_blank" href="/media/{{ file.file }}">{{ file.file|fname }}</a>
+            </div>
+            <div class="col col-2">
+                <a class="" href="/filerem/{{ file.id }}/">Удалить</a>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text"  for="{{ form.file_field.id_for_label }}">{{ form.file_field.label }}</label>
+            {{ field.errors }}
+            {% if form.errors %}
+                {% comment %}
+                    {{ form.file_field|hasget }}
+                    {{ form.fields.file_field|print }}
+                    {{ form.file_field|dir }}
+                    {{ form.fields.file_field  }}
+                {% endcomment %}
+            {% else %}
+                {{ form.file_field }}
+            {% endif %}
+        </div>
+    </div>
+</div>

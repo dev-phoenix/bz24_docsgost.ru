@@ -1,0 +1,20 @@
+{# form-item-style-fill.html #}
+{% load tplext %}
+
+<div class="card mb-3">
+    <div class="card-header d-flex justify-content-end">
+        {% for subfield in form.fill_content.subwidgets %}
+            {% include 'form-field-set.html' with data=subfield.data %}
+        {% endfor %}
+    </div >
+    <div class="card-body">
+        <div class="col col-12">
+            <div class="input-group mb-3 w-20 d-inline-flex">
+                <label class="input-group-text"
+                for="{{ form.fill_char.id_for_label }}">{{ form.fields.fill_char.label }}</label>
+                {{ form.fill_char.errors }}
+                {{ form.fill_char }}
+            </div>
+        </div>
+    </div>
+</div>

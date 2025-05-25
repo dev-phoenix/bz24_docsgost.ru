@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Format Text{% endblock %}
+
+{% block content %}
+    <h1>Dict</h1>
+    {% if num_books %}
+        <h1>Hello {{ num_books }}!</h1>
+    {% else %}
+        <h1>Hello, World!</h1>
+    {% endif %}
+
+    <div><b>Count: {{num_books}} </b></div>
+{% endblock %}

@@ -1,0 +1,50 @@
+[
+    {
+        "model": "projectTempl.fontsizemodel",
+        "pk": 1,
+        "fields": {
+            "size": 10,
+            "weight": 0
+        }
+    },
+    {
+        "model": "projectTempl.fontsizemodel",
+        "pk": 2,
+        "fields": {
+            "size": 11,
+            "weight": 1
+        }
+    },
+    {
+        "model": "projectTempl.fontsizemodel",
+        "pk": 3,
+        "fields": {
+            "size": 12,
+            "weight": 2
+        }
+    },
+    {
+        "model": "projectTempl.fontsizemodel",
+        "pk": 4,
+        "fields": {
+            "size": 14,
+            "weight": 3
+        }
+    },
+    {
+        "model": "projectTempl.fontsizemodel",
+        "pk": 5,
+        "fields": {
+            "size": 16,
+            "weight": 4
+        }
+    },
+    {
+        "model": "projectTempl.fontsizemodel",
+        "pk": 6,
+        "fields": {
+            "size": 20,
+            "weight": 5
+        }
+    }
+]

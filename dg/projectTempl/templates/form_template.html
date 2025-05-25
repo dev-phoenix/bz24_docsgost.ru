@@ -1,0 +1,68 @@
+
+{% load tplext %}
+
+{{ form.non_field_errors }}
+{{ form.subject.as_field_group }}
+
+{# Include the hidden fields #}
+{% for hidden in form.hidden_fields %}
+{{ hidden }}
+{% endfor %}
+{% if form.errors %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-6">
+            <div class="alert alert-danger">
+                <strong>В форме есть ошибки</strong>
+            </div>
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{field.label}}: {{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="row">
+    <div class="col col-6">
+        <div class="input-group mb-3 -w-25 -d-inline-flex">
+            <label class="input-group-text"  for="{{ form.templateName.id_for_label }}">{{ form.templateName.label }}</label>
+            {{ form.templateName.errors }}
+            {{ form.templateName }}
+        </div>
+        <div class="input-group mb-3 -w-25 -d-inline-flex">
+            <label class="input-group-text"  for="{{ form.vuz.id_for_label }}">{{ form.vuz.label }}</label>
+            {{ form.vuz.errors }}
+            {{ form.vuz }}
+        </div>
+        <div class="input-group mb-3 -w-25 -d-inline-flex">
+            <label class="input-group-text"  for="{{ form.worktype.id_for_label }}">{{ form.worktype.label }}</label>
+            {{ form.worktype.errors }}
+            {{ form.worktype }}
+        </div>
+        {% include 'form-item-style-layout.html' %}
+        {% include 'form-item-style--0.html' %}
+        {% include 'form-item-style--1.html' %}
+        {% include 'form-item-style--2.html' %}
+        {% include 'form-item-style--3.html' %}
+
+    </div>
+    <div class="col col-6">
+        {% include 'form-item-style--4.html' %}
+        {% include 'form-item-style--5.html' %}
+        {% include 'form-item-style--6.html' %}
+        {% include 'form-item-style--img.html' %}
+
+        {% include 'form-item-style-fill.html' with data=form.group_fill %}
+        {% include 'form-item-'|add:'style-file.html' with style=file %}
+    </div>
+    
+</div>

@@ -1,0 +1,40 @@
+ENV local
+dj_host_name None
+__file__ /home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/dg/dg/settings.py
+BASE_DIR /home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru
+resolve /home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/dg/dg/settings.py
+parent /home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/dg/dg
+parent.parent /home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/dg
+parent.parent.parent /home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru
+STATICFILES_DIRS
+ [
+    "/home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/static",
+    "/home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/media/",
+    [
+        "downloads",
+        "/home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/media/"
+    ]
+]
+{}
+True
+urlpatterns:  [
+    "<URLResolver <URLPattern list> (admin:admin) 'admin/'>",
+    "<URLResolver <module 'debug_toolbar.urls' from '/home/eagle/projects/_sandbox/bz/bz24/.dj-venv/lib/python3.8/site-packages/debug_toolbar/urls.py'> (djdt:djdt) '__debug__/'>",
+    "<URLPattern '^media/(?P<path>.*)$'>",
+    "<URLPattern '^static/(?P<path>.*)$'>",
+    "<URLPattern '^downloads/(?P<path>.*)$'>",
+    "<URLPattern '' [name='index']>",
+    "<URLPattern '404' [name='404']>",
+    "<URLPattern 'login' [name='login']>",
+    "<URLPattern 'logout' [name='logout']>",
+    "<URLPattern 'login/' [name='login']>",
+    "<URLPattern 'logout/' [name='logout']>",
+    "<URLPattern 'tplnew' [name='tplnew']>",
+    "<URLPattern 'tplstatistic' [name='tplstatistic']>"
+]
+{}
+True
+TEMPLATE_DIRS:  [
+    "/home/eagle/projects/_sandbox/bz/bz24/sites/docsgost.ru/templates/"
+]
+[{"model": "projectTempl.fontnamemodel", "pk": 1, "fields": {"name": "Times New Roman", "family": "serif", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 2, "fields": {"name": "Georgia", "family": "serif", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 3, "fields": {"name": "Garamond", "family": "serif", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 4, "fields": {"name": "Arial", "family": "sans-serif", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 5, "fields": {"name": "Verdana", "family": "sans-serif", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 6, "fields": {"name": "Helvetica", "family": "sans-serif", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 7, "fields": {"name": "Courier New", "family": "monospace", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 8, "fields": {"name": "Lucida Console", "family": "monospace", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 9, "fields": {"name": "Monaco", "family": "monospace", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 10, "fields": {"name": "Brush Script MT", "family": "cursive", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 11, "fields": {"name": "Lucida Handwriting", "family": "cursive", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 12, "fields": {"name": "Copperplate", "family": "fantasy", "used": 0}}, {"model": "projectTempl.fontnamemodel", "pk": 13, "fields": {"name": "Papyrus", "family": "fantasy", "used": 0}}]

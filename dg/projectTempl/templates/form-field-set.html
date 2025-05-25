@@ -1,0 +1,22 @@
+
+{% load tplext %}
+<div class="input-group w-a mr-3 -mb-3 d-inline-flex">
+    <label class="input-group-text" for="{{ data.attrs.id }}">{{ data.label }}</label>
+    <div class="input-group-text">
+        <input class="form-check-input mt-0" type="{{ data.type }}" value="{{ data.value }}"
+        {% if data.attrs.checked %}checked{% endif %}
+        name="{{ data.name }}"
+        id="{{ data.attrs.id }}"
+        aria-label="{{ data.label }}">
+    </div>
+</div>
+{% comment %}
+{{ data }}
+
+{'name': 'font_modif', 'value': 'upp', 'label': 'Uppercase', 
+'selected': False, 'index': '3', 
+'attrs': {'class': 'form-control', 'id': 'id_font_modif_3'}, 
+'type': 'radio', 
+'template_name': 'django/forms/widgets/radio_option.html', 'wrap_label': True}
+                
+{% endcomment %}

@@ -1,0 +1,24 @@
+{# form-item-style--1.html #}
+
+{% comment %}
+{% with field=form.first_line_0 
+title=form.title_0 
+sizes=form.sizes_0 
+fontName=form.fontName_0 
+font_style=form.font_style_0 
+font_modif=form.font_modif_0 
+text_align=form.text_align_0 
+inter_bitwin=form.inter_bitwin_0 
+inter_before=form.inter_before_0 
+inter_after=form.inter_after_0 
+marg_left=form.marg_left_0 
+marg_right=form.marg_right_0 
+first_line=form.first_line_0 
+%}
+{% endcomment %}
+
+{% with field=form.first_line_1 title=form.title_1 sizes=form.sizes_1 fontName=form.fontName_1 font_style=form.font_style_1 font_modif=form.font_modif_1 text_align=form.text_align_1 inter_bitwin=form.inter_bitwin_1 inter_before=form.inter_before_1 inter_after=form.inter_after_1 marg_left=form.marg_left_1 marg_right=form.marg_right_1 first_line=form.first_line_1 %}
+
+{% include 'form-item-style.html' %}
+
+{% endwith %}

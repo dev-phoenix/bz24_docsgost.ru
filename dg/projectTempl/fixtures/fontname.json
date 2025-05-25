@@ -1,0 +1,154 @@
+[
+
+    {
+        "model": "projectTempl.templatemodel",
+        "pk": 1,
+        "fields": {
+            "templateName": "Test Template"
+        }
+    },
+    
+    {
+        "model": "projectTempl.worktypemodel",
+        "pk": 1,
+        "fields": {
+            "name": "Диплом",
+            "tpl": 1
+        }
+    },
+    {
+        "model": "projectTempl.worktypemodel",
+        "pk": 2,
+        "fields": {
+            "name": "Реферат",
+            "tpl": 1
+        }
+    },
+    {
+        "model": "projectTempl.worktypemodel",
+        "pk": 3,
+        "fields": {
+            "name": "Курсовая",
+            "tpl": 1
+        }
+    },
+
+
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 1,
+        "fields": {
+            "name": "Times New Roman",
+            "family": "serif",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 2,
+        "fields": {
+            "name": "Georgia",
+            "family": "serif",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 3,
+        "fields": {
+            "name": "Garamond",
+            "family": "serif",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 4,
+        "fields": {
+            "name": "Arial",
+            "family": "sans-serif",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 5,
+        "fields": {
+            "name": "Verdana",
+            "family": "sans-serif",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 6,
+        "fields": {
+            "name": "Helvetica",
+            "family": "sans-serif",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 7,
+        "fields": {
+            "name": "Courier New",
+            "family": "monospace",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 8,
+        "fields": {
+            "name": "Lucida Console",
+            "family": "monospace",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 9,
+        "fields": {
+            "name": "Monaco",
+            "family": "monospace",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 10,
+        "fields": {
+            "name": "Brush Script MT",
+            "family": "cursive",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 11,
+        "fields": {
+            "name": "Lucida Handwriting",
+            "family": "cursive",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 12,
+        "fields": {
+            "name": "Copperplate",
+            "family": "fantasy",
+            "used": "0"
+        }
+    },
+    {
+        "model": "projectTempl.fontnamemodel",
+        "pk": 13,
+        "fields": {
+            "name": "Papyrus",
+            "family": "fantasy",
+            "used": "0"
+        }
+    }
+]

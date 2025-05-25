@@ -1,0 +1,169 @@
+{# form-item-style.html #}
+{% load tplext %}
+
+<div class="card mb-3">
+    <h2 class="card-header">{{ title }}</h2>
+    <div class="card-body">
+        <div class="col col-12">
+            <div class="input-group mb-3 w-28 d-inline-flex">
+                <label class="input-group-text"  for="{{ fontName.id_for_label }}">{{ fontName.label }}</label>
+                {{ fontName.errors }}
+                <select name="{{ fontName.html_name }}" class="form-select"
+                id="{{ fontName.id_for_label }}"
+                >
+                {% comment %}
+                {{ '======================'|print }}
+                {{ fontName.name|print }}
+                {{ fontName.data|print }}
+                {{ fontName|dir }}
+                {{ fontName.value|print }}
+                {% endcomment %}
+                {% for font in form.fonts %}
+                {#{ font.id|print }#}
+                {#{ font }#}
+                    <option value="{{ font.id }}"
+                    {#% if fontName.value == font.id|stringformat:"i" %} selected{% endif %#}
+                    {% if fontName.value == font.id %} selected{% endif %}
+                    >{{ font.name }} &nbsp; &nbsp;[ {{ font.family }} ]</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="input-group mb-3 w-20 d-inline-flex">
+                {% with field=sizes %}
+                <label class="input-group-text"  for="{{ field.id_for_label }}"
+                >{{ field.label }}</label>
+                {{ field.errors }}
+                {{ field }}
+                {% endwith %}
+            </div>
+
+            {% for subfield in font_style.subwidgets %}
+                {% with data=subfield.data %}
+                    <input class="form-check-input d-none mt-0 ch{% cycle 1 2 3 %}" type="{{ data.type }}" value="{{ data.value }}"
+                    {% if data.attrs.checked %}checked{% endif %}
+                    name="{{ data.name }}"
+                    id="{{ data.attrs.id }}"
+                    aria-label="{{ data.label }}">
+                {% endwith %}
+            {% endfor %}
+            {#{ font_style }#}
+            <div class="btn-group -mx-3 align-top">
+                {% for subfield in font_style.subwidgets %}
+                    {% with data=subfield.data %}
+                        <label for="{{ data.attrs.id }}"
+                        aria-label="{{ data.label }}" class="ch{% cycle 1 2 3 %} btn btn-outline-secondary">
+                            {{ data.label|safe }}
+                        </label>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            {% for subfield in text_align.subwidgets %}
+                {% with data=subfield.data %}
+                    <input class="form-check-input d-none mt-0 ch{% cycle 4 5 6 7 %}" type="{{ data.type }}" value="{{ data.value }}"
+                    {% if data.attrs.checked %}checked{% endif %}
+                    name="{{ data.name }}"
+                    id="{{ data.attrs.id }}"
+                    aria-label="{{ data.label }}">
+                {% endwith %}
+            {% endfor %}
+            <div class="btn-group align-top">
+                {% for subfield in text_align.subwidgets %}
+                    {% with data=subfield.data %}
+                        <label for="{{ data.attrs.id }}"
+                        aria-label="{{ data.label }}" class="ch{% cycle 4 5 6 7 %} btn btn-outline-secondary">
+                            <svg class="bi" width="20" height="20" fill="currentColor"><use xlink:href="#{% cycle 'text-left' 'text-center' 'text-right' 'justify' %}"></use></svg>
+                            <span class="visually-hidden">Button</span>
+                        </label>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+
+            {% for subfield in font_modif.subwidgets %}
+                {% with data=subfield.data %}
+                    <input class="form-check-input d-none mt-0 ch{% cycle 8 9 10 11 %}" type="{{ data.type }}" value="{{ data.value }}"
+                    {% if data.attrs.checked %}checked{% endif %}
+                    name="{{ data.name }}"
+                    id="{{ data.attrs.id }}"
+                    aria-label="{{ data.label }}">
+                {% endwith %}
+            {% endfor %}
+            <div class="btn-group align-top">
+                {% for subfield in font_modif.subwidgets %}
+                    {% with data=subfield.data %}
+                        <label for="{{ data.attrs.id }}"
+                        aria-label="{{ data.label }}" class="ch{% cycle 8 9 10 11 %} btn btn-outline-secondary">
+                            {{ data.value|safe }}
+                        </label>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col col-12">
+            <div class="row">
+                <div class="col col-2">
+                    <label for="" class="mr-3">Интервалы</label>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3 w-30 mr-3 d-inline-flex">
+                        {% with field=inter_bitwin %}
+                        <label class="input-group-text"  for="{{ field.id_for_label }}"
+                        >{{ field.label }}</label>
+                        {{ field.errors }}
+                        {{ field }}
+                        {% endwith %}
+                    </div>
+                    <div class="input-group mb-3 w-30 mr-3 d-inline-flex">
+                        {% with field=inter_before %}
+                        <label class="input-group-text"  for="{{ field.id_for_label }}"
+                        >{{ field.label }}</label>
+                        {{ field.errors }}
+                        {{ field }}
+                        {% endwith %}
+                    </div>
+                    <div class="input-group mb-3 w-30 mr-3 d-inline-flex">
+                        {% with field=inter_after %}
+                        <label class="input-group-text"  for="{{ field.id_for_label }}"
+                        >{{ field.label }}</label>
+                        {{ field.errors }}
+                        {{ field }}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-12">
+            <div class="row">
+                <div class="col col-2">
+                    <label for="" class="mr-3">Отступы</label>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3 w-30 mr-3 d-inline-flex">
+                        {% with field=marg_left %}
+                        <label class="input-group-text"  for="{{ field.id_for_label }}"
+                        >{{ field.label }}</label>
+                        {{ field.errors }}
+                        {{ field }}
+                        {% endwith %}
+                    </div>
+                    <div class="input-group mb-3 w-30 mr-3 d-inline-flex">
+                        {% with field=marg_right %}
+                        <label class="input-group-text"  for="{{ field.id_for_label }}"
+                        >{{ field.label }}</label>
+                        {{ field.errors }}
+                        {{ field }}
+                        {% endwith %}
+                    </div>
+                    <div class="input-group mb-3 w-30 mr-3 d-inline-flex">
+                        {% with field=first_line %}
+                        <label class="input-group-text"  for="{{ field.id_for_label }}"
+                        >{{ field.label }}</label>
+                        {{ field.errors }}
+                        {{ field }}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

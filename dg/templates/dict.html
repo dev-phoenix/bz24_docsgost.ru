@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Hello from Flask 2{% endblock %}
+
+{% block content %}
+    <h1>Dict</h1>
+    {% if name %}
+        <h1>Hello {{ name }}!</h1>
+    {% else %}
+        <h1>Hello, World!</h1>
+    {% endif %}
+
+    <div><b>Count: {{count}} <!--{{(-(-count//4))}} {{(limit//4)}}--></b></div>
+    <div><b>Page: {{page}} of {{pages}}</b> <b id="loader">Loading...</b></div>
+
+    <div class="flex">
+        {% for page in pager -%}
+            <a class="flex item-25" id="{{page.name}}" href="/dict/{{page.limit}}/{{page.page}}">{{page.title}}</a>
+        {% endfor %}
+    </div>
+    <hr/>
+    <div class="flex">
+        {% for col in [0,1,2,3] -%}
+        <div class="flex item-25">
+        {% for id, word, freq, tr in trans[limit//4*col:limit//4*(col+1):] -%}
+            <div class="flex item">
+                <!--b>#{{ loop.index }}</b-->
+                <div d="2" class="ceil"> <span>{{ freq }}</span></div>
+                <div d="1" class="ceil"> <span>{{ word }}</span></div>
+                <div d="3" class="ceil"> <span>{{ tr }}</span></div>
+            </div>
+        {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
