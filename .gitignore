@@ -412,8 +412,9 @@ migrations
 env
 _*
 pjs
+req
 **/*copy*
 templates2
 
 !.gitignore
-
+!requirements.txt
